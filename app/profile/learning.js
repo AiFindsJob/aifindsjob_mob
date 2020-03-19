@@ -3,22 +3,22 @@ import React from 'react';
 import {View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import ElearningCard from './comp/elearning';
+import CourseCard from './comp/courceCard'
 
 class ELearning extends React.Component {
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={{backgroundColor: '#fff', height: '100%'}}>
-        <View
-          style={{
-            height: 60,
-            backgroundColor: '#fff',
-            elevation: 5,
-            width: '100%',
-          }}>
-          <View />
-        </View>
+        
+        
         <ScrollView>
-          <ElearningCard />
+          <CourseCard
+            cname="Interview"
+            aboutCourse={() => {
+              navigate('Course details');
+            }}
+          />
         </ScrollView>
       </View>
     );

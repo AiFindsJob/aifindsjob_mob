@@ -12,6 +12,8 @@ import ForgotPassword from './forgotPassword';
 import Aboutus from '../profile/comp/about';
 import ProfileNavigator from '../profile/bottomNav';
 import PasswordUpdate from '../profile/comp/passwordupdate';
+import CourseDetails from '../profile/comp/courseDetails';
+import Payment from '../profile/comp/payment'
 const MainHome = () => {
   return <View />;
 };
@@ -50,6 +52,12 @@ const MainNavigator = createStackNavigator({
   },
   'Reset password': {
     screen: PasswordUpdate,
+  },
+  'Course details': {
+    screen: CourseDetails,
+  },
+  Payment: {
+    screen: Payment,
   },
 });
 
