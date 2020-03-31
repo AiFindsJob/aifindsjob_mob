@@ -13,6 +13,7 @@ import Aboutus from '../profile/comp/about';
 import ProfileNavigator from '../profile/bottomNav';
 import PasswordUpdate from '../profile/comp/passwordupdate';
 import CourseDetails from '../profile/comp/courseDetails';
+import CompDetails from '../profile/comp/compDetails';
 import Payment from '../profile/comp/payment'
 const MainHome = () => {
   return <View />;
@@ -58,6 +59,9 @@ const MainNavigator = createStackNavigator({
   },
   Payment: {
     screen: Payment,
+  },
+  'Company details': {
+    screen: CompDetails,
   },
 });
 

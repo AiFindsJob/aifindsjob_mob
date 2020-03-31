@@ -10,8 +10,6 @@ class ELearning extends React.Component {
     const {navigate} = this.props.navigation;
     return (
       <View style={{backgroundColor: '#fff', height: '100%'}}>
-        
-        
         <ScrollView>
           <CourseCard
             cname="Interview"

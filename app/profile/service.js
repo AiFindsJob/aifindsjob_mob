@@ -2,12 +2,19 @@
 import React from 'react';
 import {View} from 'react-native';
 import ServiceCard from './comp/serviceCard';
+import CompViewCard from './comp/compViewCard';
 
 class Service extends React.Component {
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={{backgroundColor: '#fff', height: '100%'}}>
-        <ServiceCard />
+        <CompViewCard
+          cname="Eldhos"
+          aboutCompany={() => {
+            navigate('Company details');
+          }}
+        />
       </View>
     );
   }
