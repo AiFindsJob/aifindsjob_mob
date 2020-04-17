@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, View, Dimensions} from 'react-native';
+import {Text, View, Dimensions, ImageBackground} from 'react-native';
 import primary from '../../index/properties';
 
 let w = Dimensions.get('window').width;
@@ -9,34 +9,39 @@ export default class ServiceCard extends React.Component {
   render() {
     return (
       <View>
-        <View
+        <ImageBackground
+          source={this.props.img}
           style={{
             width: m,
-            margin: 15,
-            backgroundColor: '#fff',
-            borderRadius: 9,
-            height: 100,
+            alignSelf: 'center',
             elevation: 5,
-          }}>
-          <Text style={{fontSize: 20, margin: 10, color:'#48484A'}}>Mock interview</Text>
+            marginTop: 10,
+          }}
+          imageStyle={{borderRadius: 9}}>
           <View
             style={{
-              width: 120,
+              width: m,
               borderRadius: 9,
-              margin: 10,
-              backgroundColor: primary,
+              backgroundColor: '#00000050',
             }}>
-            <Text
-              style={{
-                color: '#fff',
-                textAlign: 'center',
-                fontSize: 14,
-                padding: 5,
-              }}>
-              Enroll now
+            <Text style={{fontSize: 20,marginTop: -15, margin: 10, color: '#fff'}}>
+              {this.props.txt}
             </Text>
+            <View
+              style={{
+                width: 100,
+                height: 40,
+                margin: 10,
+                alignSelf:'flex-end',
+                alignItems: 'center',
+                elevation:5,
+                backgroundColor: primary,
+                borderRadius: 5,
+              }}>
+              <Text style={{color: '#fff',margin:10}}>Read more</Text>
+            </View>
           </View>
-        </View>
+        </ImageBackground>
       </View>
     );
   }

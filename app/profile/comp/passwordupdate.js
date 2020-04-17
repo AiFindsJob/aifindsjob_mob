@@ -10,7 +10,7 @@ import {
 import primary from '../../index/properties';
 import PasswordInputText from '../../index/passwordInput';
 const h = Math.round(Dimensions.get('window').height);
-
+import {Fonts} from '../../index/fonts';
 class PasswordUpdate extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
@@ -19,7 +19,7 @@ class PasswordUpdate extends React.Component {
         <View style={{padding: 30}}>
           <Text
             style={{
-              fontFamily: 'Raleway-Medium',
+              fontFamily: Fonts.Poppins,
               fontSize: 33,
               color: '#384452',
             }}>
@@ -67,7 +67,7 @@ class PasswordUpdate extends React.Component {
             onStartShouldSetResponder={() => {
                 navigate('user');
               }}>
-            <Text style={{textAlign: 'center', fontSize: 20, color: 'white'}}>
+            <Text style={{textAlign: 'center',fontFamily:Fonts.Poppins, fontSize: 20, color: 'white'}}>
               Reset
             </Text>
           </View>

@@ -7,7 +7,10 @@ import { SliderBox } from 'react-native-image-slider-box';
 import { } from 'react-native-paper';
 import JobCard from './comp/jobCard';
 import primary from '../index/properties';
-
+import {data} from './comp/data'
+import JobCat from './comp/jobCat'
+import {Fonts} from '../index/fonts';
+let i=0;
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -17,40 +20,37 @@ class Home extends React.Component {
         require('../assets/2.jpg'),
         require('../assets/3.jpg'),
       ],
-      ccom:[{
-        cname:'facebook',
-        img:require('../assets/fbs.jpg'),
-        cont:'Facebook, Inc. is an American social media and technology company based in Menlo Park, California. It was founded by Mark Zuckerberg, along with fellow Harvard College students and roommates Eduardo',
-      },{
-        cname:'Google',
-        img:require('../assets/googl.jpg'),
-        cont:'Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, search engine, cloud computing, software, and hardware. It is considered one of the Big Four technology companies, alongside Amazon, Apple, and Facebook.',
-      },
-      {
-        cname:'Amazon',
-        img:require('../assets/amazon.jpg'),
-        cont:'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook',
-      },{
-        cname:'Microsoft',
-        img:require('../assets/micro.jpg'),
-        cont:'Microsoft Corporation is an American multinational technology company with headquarters in Redmond, Washington. It develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.',
-      }],
-      ccun:[{
-        cname:'Aspiring minds',
-        img:require('../assets/aspirin.jpg'),
-        cont:'Aspiring Minds is a global job skills credentialing leader set up with a vision to create a merit driven talent ecosystem and enable efficient job skills matching by crafting credible and intelligent assessments.',
-      }],
       tabC:true,
+      expA:false,
+      expB:false,
+      expC:false,
+      expD:false,
     };
   }
+
   _tcons=()=>{
         this.setState({tabC:false});
       }
       _tcomp=()=>{
          this.setState({tabC:true});
       }
+
+      _expB=()=>{
+        //this.setState({expA:!this.state.expA,expB:false,expC:false,expD:false});
+        //navigate('INDUSTRY')
+      }
+      _expC=()=>{
+        this.setState({expC:true,expB:false,expA:false,expD:false});
+      }
+      _expD=()=>{
+        this.setState({expD:true,expB:false,expC:false,expA:false});
+      }
+
+
   render() {
       let w = Dimensions.get('window').width;
+      const {navigate} = this.props.navigation;
+     
       let m = (w - 19) / 2;
     return (
       <View style={{backgroundColor:'#fff'}}>
@@ -70,22 +70,31 @@ class Home extends React.Component {
         <View style={{width: w - 20,margin:10,elevation:5,backgroundColor:'#fff',borderRadius:9}}>
           <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',elevation:5,borderRadius:0,backgroundColor:'#fff',borderTopLeftRadius: 9,borderTopRightRadius: 9}}>
             <TouchableOpacity onPress={this._tcomp} style={{width:m,backgroundColor:this.state.tabC?primary:'#fff',borderTopLeftRadius: 9,padding:15,alignItems:'center'}}>
-              <Text style={{color:this.state.tabC?'#fff':primary}}>Top Companies</Text>
+              <Text style={{fontFamily:'RobotoCondensed-Regular',fontSize:16,color:this.state.tabC?'#fff':primary}}>Top Companies</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this._tcons} style={{width:m,backgroundColor:this.state.tabC?'#fff':primary,borderTopRightRadius: 9,padding:15,alignItems:'center'}}>
-              <Text style={{color:this.state.tabC?primary:'#fff'}}>Top Cunsultancy</Text>
+              <Text style={{fontFamily:'RobotoCondensed-Regular',fontSize:16,color:this.state.tabC?primary:'#fff'}}>Top Cunsultancy</Text>
             </TouchableOpacity>
           </View>
 
-          {/*Top companies*/}
+          {/*Top companies**/}
           <View style={{backgroundColor:'#fff',height:'auto'}} >
-            {this.state.tabC?this.state.ccom.map((data, index) => (
-               <JobCard cname={data.cname} img={data.img} cont={data.cont}/>
-            )):this.state.ccun.map((data, index) => (
-               <JobCard cname={data.cname} img={data.img} cont={data.cont}/>
+            {this.state.tabC?data.ccom.map((data, index) => (
+               <JobCard cname={data.cname} img={data.img} key={index} cont={data.cont}/>
+            )):data.ccun.map((data, index) => (
+               <JobCard cname={data.cname} img={data.img} key={index} cont={data.cont}/>
             ))}
           </View>
         </View>
+
+              {/*Jobs description*/}
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+              <JobCat dataMap={data.industry.slice(0,6)} header="Industry" navigateCall={()=>{navigate('Industry')}}/>
+              <JobCat dataMap={data.department.slice(0,6)} header="Department" navigateCall={()=>{navigate('Department')}}/>
+              <JobCat dataMap={data.location.slice(0,6)} header="Location" navigateCall={()=>{navigate('Location')}}/>
+              <JobCat dataMap={data.designation.slice(0,6)} header="Designation" navigateCall={()=>{navigate('Designation')}}/>
+          </ScrollView>
+
         </ScrollView>
       </View>
     );

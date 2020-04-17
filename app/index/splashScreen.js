@@ -6,7 +6,7 @@ import {View, Modal, Text, Dimensions, TouchableHighlight} from 'react-native';
 import {SliderBox} from 'react-native-image-slider-box';
 
 import primary, {h, w} from './properties';
-
+import {Fonts} from './fonts';
 const he = Dimensions.get('window').height;
 const va = he - 30;
 class SplashScreen extends React.Component {
@@ -49,7 +49,7 @@ class SplashScreen extends React.Component {
             margin: 22,
             textAlign: 'center',
             color: '#48484A',
-            fontFamily: 'Raleway-Medium',
+            fontFamily: Fonts.Poppins,
             fontSize: 23,
           }}>
           THINK GETTING THAT JOB IS OUT OF REACH? {'\n'}
@@ -57,7 +57,7 @@ class SplashScreen extends React.Component {
             style={{
               fontWeight: '500',
               fontSize: 27,
-              fontFamily: 'Raleway-Mediu',
+              fontFamily: Fonts.Poppins,
             }}>
             THINK AGAIN
           </Text>
@@ -78,7 +78,13 @@ class SplashScreen extends React.Component {
               backgroundColor: primary,
               elevation: 10,
             }}>
-            <Text style={{textAlign: 'center', fontSize: 20, color: 'white'}}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 22,
+                fontFamily: Fonts.Poppins,
+                color: 'white',
+              }}>
               CREATE ACCOUNT
             </Text>
           </View>
@@ -87,9 +93,10 @@ class SplashScreen extends React.Component {
         <Text
           style={{
             textAlign: 'center',
-            fontSize: 14,
+            fontSize: 16,
             margin: 20,
             color: '#9ba7b5',
+            fontFamily: Fonts.Poppins,
           }}>
           Already have an account?
         </Text>
@@ -109,7 +116,13 @@ class SplashScreen extends React.Component {
               backgroundColor: 'white',
               elevation: 10,
             }}>
-            <Text style={{textAlign: 'center', fontSize: 20, color: '#48484A'}}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 22,
+                fontFamily: Fonts.Poppins,
+                color: '#48484A',
+              }}>
               SIGN IN
             </Text>
           </View>
@@ -121,6 +134,7 @@ class SplashScreen extends React.Component {
             margin: 20,
             padding: 10,
             color: '#9ba7b5',
+            fontFamily: Fonts.Poppins,
           }}>
           By creating an account,you are agreeing to our{' '}
         </Text>
@@ -130,7 +144,13 @@ class SplashScreen extends React.Component {
             style={{marginTop: -20}}
             onStartShouldSetResponder={this._showTerms}>
             <Text
-              style={{fontWeight: 'bold', textAlign: 'center', color: primary}}>
+              style={{
+                textAlign: 'center',
+                color: primary,
+                fontSize:14,
+                fontFamily: Fonts.Poppins,
+                fontWeight:'400'
+              }}>
               Terms of Service
             </Text>
           </View>

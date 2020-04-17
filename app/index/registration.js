@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   Dimensions,
 } from 'react-native';
+import {Fonts} from './fonts';
 import primary from './properties';
 import PasswordInputText from './passwordInput';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -21,8 +22,8 @@ class Registration extends React.Component {
         <View style={{padding: 30}}>
           <Text
             style={{
-              fontFamily: 'Raleway-Medium',
-              fontSize: 33,
+              fontFamily: Fonts.Poppins,
+              fontSize: 34,
               color: '#384452',
             }}>
             Welcome
@@ -31,7 +32,7 @@ class Registration extends React.Component {
         <View style={{paddingLeft: 30, marginTop: -20}}>
           <Text
             style={{
-              fontFamily: 'Raleway-light',
+              fontFamily: Fonts.Poppins,
               paddingTop: -25,
               fontSize: 20,
               color: '#9ba7b5',
@@ -57,17 +58,10 @@ class Registration extends React.Component {
             />
           </TextField>
         </View>
-        <View style={{margin: 30, flex: 0, top: 10}}>
+        <View style={{margin: 30, flex: 0}}>
           <PasswordInputText style={{paddingBottom: 5}} lab="Password" />
         </View>
-        <View style={{flexDirection: 'column'}}>
-          <View
-            style={{}}
-            onStartShouldSetResponder={() => {
-              navigate('Signin');
-            }}
-          />
-        </View>
+
         <TouchableHighlight>
           <View
             style={{
@@ -86,7 +80,13 @@ class Registration extends React.Component {
               shadowRadius: 4,
               elevation: 10,
             }}>
-            <Text style={{textAlign: 'center', fontSize: 20, color: 'white'}}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontFamily: Fonts.Poppins,
+                fontSize: 22,
+                color: 'white',
+              }}>
               SIGN UP
             </Text>
           </View>
@@ -98,7 +98,12 @@ class Registration extends React.Component {
             padding: 10,
             justifyContent: 'center',
           }}>
-          <Text style={{fontSize: 14, color: '#9ba7b5'}}>
+          <Text
+            style={{
+              fontSize: 14,
+              fontFamily: Fonts.Poppins,
+              color: '#9ba7b5',
+            }}>
             Already have an account?{' '}
           </Text>
           <View
@@ -106,7 +111,13 @@ class Registration extends React.Component {
             onStartShouldSetResponder={() => {
               navigate('Signin');
             }}>
-            <Text style={{fontWeight: 'bold', fontSize: 16, color: primary}}>
+            <Text
+              style={{
+                marginTop:-2,
+                fontFamily:Fonts.Poppins,
+                fontSize: 16,
+                color: primary,
+              }}>
               Sign In
             </Text>
           </View>

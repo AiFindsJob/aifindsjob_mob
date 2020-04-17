@@ -12,7 +12,7 @@ import primary from './properties';
 import PasswordInputText from './passwordInput';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {TextField} from 'react-native-material-textfield';
-
+import {Fonts} from './fonts';
 const h = Math.round(Dimensions.get('window').height);
 
 class SignIn extends React.Component {
@@ -23,8 +23,8 @@ class SignIn extends React.Component {
         <View style={{padding: 30}}>
           <Text
             style={{
-              fontFamily: 'Raleway-Medium',
-              fontSize: 33,
+              fontFamily: Fonts.Poppins,
+              fontSize: 34,
               color: '#384452',
             }}>
             Welcome back
@@ -33,7 +33,7 @@ class SignIn extends React.Component {
         <View style={{paddingLeft: 30, marginTop: -20}}>
           <Text
             style={{
-              fontFamily: 'Raleway-light',
+              fontFamily: Fonts.Poppins,
               paddingTop: -25,
               fontSize: 20,
               color: '#9ba7b5',
@@ -41,7 +41,7 @@ class SignIn extends React.Component {
             Sign in to continue
           </Text>
         </View>
-        <View style={{margin: 30, flex: 0, top: '8%'}}>
+        <View style={{margin: 30, flex: 0, top: '6%'}}>
           <TextField style={{paddingBottom: 5}} label="Email/Phone">
             <Icon
               style={styles.icon}
@@ -51,7 +51,7 @@ class SignIn extends React.Component {
             />
           </TextField>
         </View>
-        <View style={{margin: 30, flex: 0, top: 10}}>
+        <View style={{margin: 30, flex: 0}}>
           <PasswordInputText lab="Password" style={{paddingBottom: 5}} />
         </View>
         <View style={{flexDirection: 'column'}}>
@@ -62,7 +62,7 @@ class SignIn extends React.Component {
             }}>
             <Text
               style={{
-                fontFamily: 'Raleway-light',
+                fontFamily: Fonts.Poppins,
                 fontSize: 14,
                 color: '#9ba7b5',
                 textAlign: 'right',
@@ -89,7 +89,13 @@ class SignIn extends React.Component {
               shadowColor: '#00c3ee',
               elevation: 10,
             }}>
-            <Text style={{textAlign: 'center', fontSize: 20, color: 'white'}}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontFamily: Fonts.Poppins,
+                fontSize: 22,
+                color: 'white',
+              }}>
               SIGN IN
             </Text>
           </View>
@@ -97,6 +103,7 @@ class SignIn extends React.Component {
         <Text
           style={{
             fontSize: 20,
+            fontFamily: Fonts.Poppins,
             color: '#9ba7b5',
             textAlign: 'center',
             margin: 20,
@@ -121,35 +128,41 @@ class SignIn extends React.Component {
             <Text
               style={{
                 textAlign: 'center',
-                fontSize: 20,
+                fontSize: 22,
                 color: '#595959',
                 padding: 10,
-                paddingTop: -10,
+                fontFamily: Fonts.Poppins,
               }}>
               <Image
                 source={require('../assets/G.png')}
                 style={{width: 28, height: 28}}
               />
-              <Text>    Continue with Google</Text>
+              <Text> Continue with Google</Text>
             </Text>
           </View>
         </TouchableHighlight>
         <View
-          style={{marginTop: -20}}
+          style={{marginTop: -18}}
           onStartShouldSetResponder={() => {
             navigate('CreateAccout');
           }}>
           <Text
             style={{
               textAlign: 'center',
+              fontFamily: Fonts.Poppins,
               fontSize: 14,
               margin: 20,
               padding: 10,
               color: '#9ba7b5',
             }}>
-            Don't have an account?{' '}
-            <Text style={{fontWeight: 'bold', fontSize: 16, color: primary}}>
-              Create Now
+            Don't have an account?
+            <Text
+              style={{
+                fontFamily: Fonts.Poppins,
+                fontSize: 16,
+                color: primary,
+              }}>
+              {' '}Create Now
             </Text>
           </Text>
         </View>
